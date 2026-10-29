@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>কচুয়া কারিগরপাড়া যুব উন্নয়ন</title>
+<style>
+:root{--bg:#f6f8f2;--card:#fff;--tx:#1d2a1d;--mu:#5b6b5b;--pr:#2e7d32;--pr2:#1b5e20;--ac:#f9a825;--bd:#dfe6d6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121712;--card:#1b231b;--tx:#e8f0e4;--mu:#9fb09f;--pr:#66bb6a;--pr2:#2e7d32;--bd:#2a362a}}
+:root[data-theme="dark"]{--bg:#121712;--card:#1b231b;--tx:#e8f0e4;--mu:#9fb09f;--pr:#66bb6a;--pr2:#2e7d32;--bd:#2a362a}
+html{scroll-padding-top:calc(70px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Noto Sans Bengali","Hind Siliguri",system-ui,sans-serif;line-height:1.7}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--pr2);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;gap:12px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--pr2);z-index:10}
+.logo{font-weight:700;font-size:1.05rem}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px}
+nav a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:8px;font-size:.95rem;display:block}
+nav a:hover{background:rgba(255,255,255,.18)}
+#burger{display:none;background:none;border:0;color:#fff;font-size:1.6rem;cursor:pointer}
+@media(max-width:820px){#burger{display:block}nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--pr2)}nav.open{display:block}nav ul{flex-direction:column;padding:8px}}
+.slider{position:relative;overflow:hidden;height:min(60vh,430px)}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:24px;opacity:0;transition:opacity .7s}
+.slide.on{opacity:1}
+.slide .em{font-size:4rem}
+.slide h2{margin:.2em 0;font-size:clamp(1.4rem,4vw,2.4rem)}
+.slide p{max-width:560px;margin:0 0 14px;font-size:1.05rem}
+.btn{display:inline-block;background:var(--ac);color:#222;padding:9px 20px;border-radius:24px;text-decoration:none;font-weight:700}
+.ar{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.35);color:#fff;border:0;font-size:1.6rem;width:42px;height:42px;border-radius:50%;cursor:pointer}
+#prev{left:10px}#next{right:10px}
+.dots{position:absolute;bottom:12px;left:0;right:0;text-align:center}
+.dots i{display:inline-block;width:10px;height:10px;margin:0 4px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer}
+.dots i.on{background:#fff}
+section{max-width:1100px;margin:0 auto;padding:34px 16px}
+h2.t{margin:0 0 6px;color:var(--pr)}
+.sub{color:var(--mu);margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px}
+.card .ic{font-size:2.2rem}
+.card h3{margin:.2em 0}
+.card ul{padding-left:18px;margin:.4em 0;color:var(--mu);font-size:.93rem}
+.card li.x{display:none}.card.open li.x{display:list-item}
+.more{background:none;border:0;color:var(--pr);cursor:pointer;font:inherit;padding:0;font-weight:600}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 14px;min-width:150px}
+.chip b{display:block;font-size:1.2rem;color:var(--pr)}
+.chip span{font-size:.85rem;color:var(--mu)}
+a.link{color:var(--pr)}
+.tsec{margin-bottom:26px}
+.tsec h3{margin:0 0 10px;color:var(--pr);font-size:1.3rem}
+.tview{position:relative;overflow:hidden;border-radius:16px;height:230px;touch-action:pan-y}
+.tslide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:20px 60px;opacity:0;transition:opacity .6s}
+.tslide.on{opacity:1}
+.tslide .tn{font-size:1.1rem;opacity:.9;margin-bottom:8px}
+.tslide p{margin:0;font-size:clamp(1.1rem,3vw,1.5rem);font-weight:600;max-width:640px}
+.tview .ar{width:36px;height:36px;font-size:1.3rem}
+.tdots{position:absolute;bottom:10px;left:0;right:0;text-align:center}
+.tdots i{display:inline-block;width:8px;height:8px;margin:0 3px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer}
+.tdots i.on{background:#fff}
+.tc{text-decoration:none;color:inherit;display:block}.tc:hover{border-color:var(--pr)}.tc p{color:var(--mu);font-size:.9rem;margin:0}
+#page{max-width:1100px;margin:0 auto;padding:24px 16px}
+.back{color:var(--pr);text-decoration:none;font-weight:600}
+.blk{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px 16px;margin-bottom:14px}
+.blk h3{margin:0 0 8px;color:var(--pr)}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:520px;font-size:.93rem}
+th,td{border:1px solid var(--bd);padding:7px 9px;text-align:left;vertical-align:top}th{background:var(--pr2);color:#fff}
+.note{color:var(--mu);margin:8px 0 0;font-size:.9rem}.warn{background:rgba(249,168,37,.18);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.tabs a{padding:7px 12px;border:1px solid var(--bd);border-radius:20px;text-decoration:none;color:var(--tx);background:var(--card)}.tabs a.on{background:var(--pr2);color:#fff}
+footer{background:var(--pr2);color:#fff;text-align:center;padding:22px 16px;font-size:.9rem}
+footer a{color:#ffe082}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">🌾 <span id="siteName"></span></div>
+  <button id="burger" aria-label="মেনু">☰</button>
+  <nav id="nav"><ul id="menu"></ul></nav>
+</header>
+
+<div class="slider" id="slider">
+  <button class="ar" id="prev" aria-label="আগের">‹</button>
+  <button class="ar" id="next" aria-label="পরের">›</button>
+  <div class="dots" id="dots"></div>
+</div>
+
+<section id="about">
+  <h2 class="t">আমাদের সম্পর্কে</h2>
+  <p class="sub" id="aboutTxt"></p>
+</section>
+
+<section id="care">
+  <h2 class="t">গ্রামের মানুষের জন্য কৃষি ও পশুপালন</h2>
+  <p class="sub">বিষয় বেছে নিন—চিকিৎসা, ওষুধ, ধরন ও খরচসহ বিস্তারিত পাতা খুলবে।</p>
+  <div class="grid" id="topics"></div>
+</section>
+<section id="page" hidden></section>
+
+<section id="services">
+  <h2 class="t">যুব উন্নয়ন কার্যালয় থেকে সংগৃহীত তথ্য</h2>
+  <p class="sub">উৎস: youth.lalpur.natore.gov.bd (সংগ্রহের তারিখ: ২৯ অক্টোবর ২০২৬)</p>
+  <div class="row" id="contacts"></div>
+  <h3>সেবা লিংক</h3>
+  <div class="row" id="links"></div>
+  <h3>জরুরি সেবা নম্বর</h3>
+  <div class="row" id="hotlines"></div>
+</section>
+
+<footer>
+  <div>তথ্যসূত্র: <a href="https://youth.lalpur.natore.gov.bd/" target="_blank" rel="noopener">উপজেলা যুব উন্নয়ন কর্মকর্তার কার্যালয়, লালপুর, নাটোর</a></div>
+  <div>© ২০২৬ কচুয়া কারিগরপাড়া যুব উন্নয়ন</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+/* Data collected from https://youth.lalpur.natore.gov.bd/ (inline snapshot). */
+var DATA = {
+  siteName: "কচুয়া কারিগরপাড়া যুব উন্নয়ন",
+  about: "উপজেলা যুব উন্নয়ন কর্মকর্তার কার্যালয়, লালপুর, নাটোরের সেবা ও তথ্য অনুসরণে গ্রামের যুবকদের গরু, ছাগল, হাঁস-মুরগি, মাছ চাষ ও ফসল উৎপাদনে স্বাবলম্বী করার উদ্যোগ।",
+  menu: [
+    {t:"হোম", h:"#home"},
+    {t:"গরু", h:"#cow"},{t:"মাছ", h:"#fish"},{t:"মুরগি", h:"#hen"},{t:"ছাগল", h:"#goat"},{t:"ফসল", h:"#crop"},
+    {t:"সেবা", h:"#services"}
+  ],
+  contacts: [
+    {n:"01715308076", l:"অফিস প্রধানের মোবাইল"},
+    {n:"01712848134", l:"জরুরি কল"}
+  ],
+  links: [
+    {t:"নথি", u:"https://nothi.gov.bd"},
+    {t:"বাংলাদেশ ফরম", u:"https://forms.gov.bd"},
+    {t:"সেবাকুঞ্জ", u:"http://services.portal.gov.bd/"},
+    {t:"অভিযোগ প্রতিকার (GRS)", u:"http://www.grs.gov.bd"},
+    {t:"মাইগভ", u:"https://www.mygov.bd/"},
+    {t:"ই-ডিরেক্টরি", u:"https://edirectory.portal.gov.bd/"},
+    {t:"বিনিয়োগ শিক্ষা", u:"http://finlitbd.com/"}
+  ],
+  hotlines: [
+    {n:"৩৩৩",l:"সরকারি তথ্য ও সেবা"},{n:"৯৯৯",l:"জরুরি সেবা"},
+    {n:"১০৯",l:"নারী ও শিশু নির্যাতন প্রতিরোধ"},{n:"১০৯৮",l:"শিশু সহায়তা লাইন"},
+    {n:"১৬৬৯৯",l:"লিগ্যাল এইড হেল্পলাইন"},{n:"১০২",l:"দুর্যোগের আগাম বার্তা"},
+    {n:"১৬১২২",l:"স্মার্ট ভূমি সেবা"},{n:"১৬৩৫৭",l:"শ্রমিক হেল্পলাইন"}
+  ],
+  slides: [
+    {e:"🐄",c:"linear-gradient(135deg,#2e7d32,#558b2f)",t:"গরু পালন",p:"স্বাস্থ্যকর খাবার, পরিষ্কার খামার ও নিয়মিত টিকায় লাভজনক গরু পালন।",h:"#cow"},
+    {e:"🐟",c:"linear-gradient(135deg,#0277bd,#26a69a)",t:"মাছ চাষ",p:"পুকুর প্রস্তুতি, পোনা ও খাবার ব্যবস্থাপনায় বাড়তি আয়।",h:"#fish"},
+    {e:"🐔",c:"linear-gradient(135deg,#ef6c00,#f9a825)",t:"মুরগি পালন",p:"দেশি ও লেয়ার মুরগি পালনে স্বল্প পুঁজিতে নিয়মিত আয়।",h:"#hen"},
+    {e:"🐐",c:"linear-gradient(135deg,#6d4c41,#8d6e63)",t:"ছাগল পালন",p:"ব্ল্যাক বেঙ্গল ছাগল পালন—গ্রামের যুবকদের জন্য সহজ উদ্যোগ।",h:"#goat"},
+    {e:"🌾",c:"linear-gradient(135deg,#33691e,#9e9d24)",t:"ফসল চাষ",p:"ধান, সবজি ও মৌসুমি ফসলে আধুনিক চাষাবাদ।",h:"#crop"}
+  ],
+  topics: [
+   {id:"cow",e:"🐄",t:"গরু পালন",intro:"দুধ উৎপাদন ও মোটাতাজাকরণ—দুই ধরনের গরু পালন গ্রামে লাভজনক।",blocks:[
+    {h:"১. জাত / ধরন ও দাম",cols:["ধরন","বৈশিষ্ট্য","আনুমানিক দাম (৳)"],rows:[["দেশি গরু","কম খরচ, রোগ সহনশীল, দুধ ১–২ লিটার","৪০,০০০–৮০,০০০"],["শাহীওয়াল/সিন্ধি ক্রস","তাপ সহনশীল, দুধ ৬–১০ লিটার","১,২০,০০০–২,৫০,০০০"],["ফ্রিজিয়ান ক্রস","বেশি দুধ ১২–২০ লিটার, যত্ন বেশি","১,৫০,০০০–৩,০০,০০০"],["মোটাতাজা ষাঁড়","৪–৬ মাসে দ্রুত ওজন বাড়ে","৭০,০০০–১,২০,০০০"]]},
+    {h:"২. ঘর ও পরিচর্যা",items:["উঁচু, শুকনো ও ঢালু মেঝে—গোবর-প্রস্রাব বেরিয়ে যেতে পারে","ছাউনি, পর্যাপ্ত বাতাস ও গরমে ছায়া/পাখা","প্রতিদিন ঘর পরিষ্কার, মাসে একবার চুনের পানি ছিটান","গোসল ও ব্রাশ করালে গরু সুস্থ থাকে"]},
+    {h:"৩. খাদ্য (প্রতিদিন)",items:["কাঁচা ঘাস ১৫–২০ কেজি, খড় ৩–৫ কেজি","দানাদার খাদ্য ১–৩ কেজি (দুধেল গাইয়ে প্রতি ২–৩ লিটার দুধে ১ কেজি)","পরিষ্কার পানি ৪০–৫০ লিটার, সঙ্গে লবণ/মিনারেল ব্লক","খাদ্য হঠাৎ বদলাবেন না"]},
+    {h:"৪. টিকা ও কৃমিনাশক",cols:["কী","কখন","উদ্দেশ্য"],rows:[["খুরা (FMD) টিকা","৬ মাস পরপর","খুরা রোগ প্রতিরোধ"],["তড়কা (Anthrax)","বছরে ১ বার","তড়কা রোগ"],["গলাফুলা (HS)","বছরে ১ বার, বর্ষার আগে","গলাফুলা রোগ"],["বাদলা (BQ)","বছরে ১ বার","বাদলা রোগ"],["কৃমিনাশক","৩–৪ মাস পরপর","পেটের কৃমি"]]},
+    {h:"৫. রোগ, চিকিৎসা ও ওষুধ*",cols:["রোগ","লক্ষণ","চিকিৎসা / ওষুধ"],rows:[["খুরা রোগ","মুখ-খুরে ঘা, লালা, জ্বর","আলাদা রাখুন; পটাশ/বোরিক পানিতে ঘা ধোয়া; দ্বিতীয় সংক্রমণে অ্যান্টিবায়োটিক (ডাক্তার)"],["ওলান প্রদাহ (Mastitis)","ওলান ফোলা, দুধে ছানা","ওলানে অ্যান্টিবায়োটিক ইনজেকশন/টিউব; ডাক্তার দিয়ে"],["পেট ফাঁপা","বাম পেট ফুলে ওঠা","সিমেথিকন/ভোজ্য তেল; জরুরি—ডাক্তার ডাকুন"],["দুগ্ধ জ্বর","বাচ্চা হওয়ার পর পড়ে যাওয়া","ক্যালসিয়াম বোরোগ্লুকোনেট শিরায় (ডাক্তার)"],["ডায়রিয়া","পাতলা পায়খানা","খাবার স্যালাইন (ORS) + ডাক্তারের পরামর্শ"],["বাহ্যিক পরজীবী (আঁটালি)","চুলকানি, রক্তশূন্যতা","আইভারমেকটিন বা ডেল্টামেথ্রিন গোসল (ডাক্তার/লেবেল)"]]},
+    {h:"৬. আনুমানিক খরচ ও আয় (১টি গরু মোটাতাজা, ৪–৬ মাস)",cols:["খাত","৳"],rows:[["গরু ক্রয়","৮০,০০০–১,০০,০০০"],["খাদ্য (দৈনিক ৩০০–৪৫০ টাকা)","৪৫,০০০–৬৫,০০০"],["ওষুধ ও টিকা","২,০০০–৩,৫০০"],["শ্রম/ঘর/অন্যান্য","৫,০০০–৮,০০০"],["বিক্রয়মূল্য","১,৪০,০০০–১,৮০,০০০"]],note:"লাভ বাজারদর ও ওজন বৃদ্ধির উপর নির্ভর করে—সাধারণত ১০,০০০–৩০,০০০ টাকা।"}]},
+   {id:"fish",e:"🐟",t:"মাছ চাষ",intro:"পুকুরে মিশ্র চাষ করলে একই পুকুরে একাধিক মাছ থেকে বেশি উৎপাদন পাওয়া যায়।",blocks:[
+    {h:"১. মাছের ধরন",cols:["মাছ","সময়","বৈশিষ্ট্য"],rows:[["রুই, কাতলা, মৃগেল (কার্প)","৬–৮ মাস","মিশ্র চাষ, কম ঝুঁকি"],["তেলাপিয়া","৪–৬ মাস","দ্রুত বাড়ে, বাজার চাহিদা বেশি"],["পাঙ্গাস","৬–৮ মাস","খাবার বেশি লাগে, উৎপাদন বেশি"],["শিং/মাগুর/কই","৫–৭ মাস","বেশি দাম, অল্প জায়গায় চাষ"]]},
+    {h:"২. পুকুর প্রস্তুতি",items:["পুকুর শুকিয়ে তলার কাদা তুলুন, আগাছা পরিষ্কার করুন","প্রতি শতকে ১ কেজি চুন দিন (৭ দিন পর সার)","জৈব সার (গোবর) প্রতি শতকে ৫–১০ কেজি","পানির গভীরতা ৪–৫ ফুট, সূর্যের আলো আসা জরুরি"]},
+    {h:"৩. পোনা ও খাদ্য",items:["সুস্থ, সমআকারের পোনা সকালে বা সন্ধ্যায় ছাড়ুন (প্রতি শতকে ৫০–৮০ টি, প্রজাতি অনুযায়ী)","পোনার ওজনের ৩–৫% সম্পূরক খাদ্য প্রতিদিন দুইবার দিন","খাবার বেশি দিলে পানি নষ্ট হয়—পরিমিত দিন"]},
+    {h:"৪. রোগ, চিকিৎসা ও ওষুধ*",cols:["সমস্যা","লক্ষণ","চিকিৎসা / ওষুধ"],rows:[["ক্ষত রোগ (EUS)","গায়ে লাল ঘা","চুন (প্রতি শতকে ১ কেজি) + লবণ; মৎস্য কর্মকর্তার পরামর্শ"],["ফুলকা পচা","ফুলকা ফ্যাকাশে, হাঁসফাঁস","পটাশিয়াম পারম্যাঙ্গানেট (লেবেল অনুযায়ী), পানি পরিবর্তন"],["অক্সিজেন কমে যাওয়া","ভোরে মাছ ভেসে ওঠা","অক্সিজেন ট্যাবলেট/পানি ঘুরানো, খাদ্য বন্ধ"],["অ্যামোনিয়া/দূষণ","পানি কালচে, দুর্গন্ধ","জিওলাইট, ধাপে ধাপে পানি পরিবর্তন"]]},
+    {h:"৫. আনুমানিক খরচ (১০ শতক পুকুর, ৬–৮ মাস)",cols:["খাত","৳"],rows:[["পুকুর প্রস্তুতি, চুন ও সার","৩,০০০–৫,০০০"],["পোনা","৪,০০০–৮,০০০"],["খাদ্য","২৫,০০০–৪০,০০০"],["ওষুধ ও অন্যান্য","২,০০০–৪,০০০"],["মোট খরচ","৩৫,০০০–৫৭,০০০"],["উৎপাদন (আনুমানিক)","৪০০–৮০০ কেজি"]],note:"বিক্রয়মূল্য বাজারদর অনুযায়ী পরিবর্তিত হয়।"}]},
+   {id:"hen",e:"🐔",t:"মুরগি পালন",intro:"স্বল্প পুঁজিতে নিয়মিত আয়ের জন্য দেশি, সোনালী, লেয়ার ও ব্রয়লার পালন করা যায়।",blocks:[
+    {h:"১. ধরন",cols:["ধরন","সময়","বৈশিষ্ট্য"],rows:[["দেশি মুরগি","ডিম ৬ মাস পর","কম খরচ, রোগ সহনশীল, দাম বেশি"],["সোনালী/ককরেল","৬০–৭০ দিনে বিক্রি","দেশি স্বাদ, মাঝারি খরচ"],["ব্রয়লার","২৮–৩৫ দিন","দ্রুত মাংস, দাম ওঠানামা বেশি"],["লেয়ার","১৮–২০ সপ্তাহ পর ডিম","বছরে ২৫০–৩০০ ডিম"]]},
+    {h:"২. ঘর ও খাদ্য",items:["ব্রয়লারে প্রতি বর্গফুটে ১টি, লেয়ারে ২ বর্গফুটে ১টি","শুকনো তুষ/ধানের খোসার বিছানা, পর্যাপ্ত আলো-বাতাস","বয়স অনুযায়ী স্টার্টার, গ্রোয়ার, ফিনিশার/লেয়ার ফিড","পরিষ্কার পানি সবসময় রাখুন"]},
+    {h:"৩. টিকা কার্যক্রম",cols:["বয়স","টিকা","উদ্দেশ্য"],rows:[["১ দিন","মারেক্স (হ্যাচারিতে)","মারেক্স রোগ"],["৫–৭ দিন","রানীক্ষেত (ND)","রানীক্ষেত"],["১২–১৪ দিন","গামবোরো (IBD)","গামবোরো রোগ"],["২১ দিন","ND বুস্টার","রানীক্ষেত"]]},
+    {h:"৪. রোগ, চিকিৎসা ও ওষুধ*",cols:["রোগ","লক্ষণ","চিকিৎসা / ওষুধ"],rows:[["রানীক্ষেত","সবুজ পায়খানা, ঘাড় বাঁকা","চিকিৎসা নেই; টিকাই উপায়; ভিটামিন সহায়ক"],["কক্সিডিওসিস","রক্তমিশ্রিত পায়খানা","অ্যামপ্রোলিয়াম/টোলট্রাজুরিল (ডাক্তারের ডোজে)"],["সিআরডি (শ্বাসকষ্ট)","হাঁচি, নাক-মুখে পানি","টাইলোসিন/ডক্সিসাইক্লিন (ডাক্তার)"],["সাদা পায়খানা","বাচ্চার সাদা বিষ্ঠা","অ্যান্টিবায়োটিক (ডাক্তার), পরিষ্কার-পরিচ্ছন্নতা"]]},
+    {h:"৫. আনুমানিক খরচ (৫০০ ব্রয়লার, ৩০–৩৫ দিন)",cols:["খাত","৳"],rows:[["বাচ্চা (৪০–৭০ ৳/টি)","২০,০০০–৩৫,০০০"],["খাদ্য (প্রায় ১,৫০০ কেজি)","৯০,০০০–১,০০,০০০"],["টিকা, ওষুধ, ভিটামিন","৮,০০০–১২,০০০"],["বিদ্যুৎ, শ্রম, অন্যান্য","৮,০০০–১২,০০০"]],note:"লাভ-ক্ষতি পুরোপুরি বাজারদরের উপর নির্ভর করে।"}]},
+   {id:"goat",e:"🐐",t:"ছাগল পালন",intro:"ব্ল্যাক বেঙ্গল ছাগল কম খরচে বছরে দুইবার বাচ্চা দেয়—গ্রামের যুবকদের জন্য সহজ উদ্যোগ।",blocks:[
+    {h:"১. জাত",cols:["জাত","বৈশিষ্ট্য","আনুমানিক দাম (৳)"],rows:[["ব্ল্যাক বেঙ্গল","মাংসের মান ভালো, ২–৩ বাচ্চা","৮,০০০–১৫,০০০ (মা)"],["যমুনাপাড়ি","বড় আকার, দুধ ও মাংস","১৫,০০০–৪০,০০০"],["বারবারি","ছোট, দ্রুত বাচ্চা","১০,০০০–২০,০০০"],["ক্রস জাত","দ্রুত বৃদ্ধি","১২,০০০–৩০,০০০"]]},
+    {h:"২. ঘর ও খাদ্য",items:["উঁচু মাচা-ঘর (মাটি থেকে ৩–৪ ফুট) তৈরি করুন","কাঁঠাল/ইপিল-ইপিল পাতা, কাঁচা ঘাস, সঙ্গে দানাদার খাদ্য ২০০–৪০০ গ্রাম","বৃষ্টি ও ঠান্ডা থেকে রক্ষা করুন, পানি সবসময় দিন","বাচ্চাকে জন্মের পর শালদুধ অবশ্যই খাওয়ান"]},
+    {h:"৩. টিকা ও কৃমি",cols:["কী","কখন","উদ্দেশ্য"],rows:[["পিপিআর টিকা","৪ মাস বয়সে, বছরে ১ বার","পিপিআর (ছাগলের প্লেগ)"],["কৃমিনাশক (অ্যালবেন্ডাজল)","৩–৪ মাস পরপর","পেটের কৃমি"],["তড়কা/ক্ষুরা","এলাকার পরামর্শে","রোগ প্রতিরোধ"]]},
+    {h:"৪. রোগ, চিকিৎসা ও ওষুধ*",cols:["রোগ","লক্ষণ","চিকিৎসা / ওষুধ"],rows:[["পিপিআর","জ্বর, নাক-মুখে স্রাব, ডায়রিয়া","টিকাই প্রতিরোধ; ডাক্তার দিয়ে সহায়ক চিকিৎসা ও অ্যান্টিবায়োটিক"],["কৃমি","রোগা, ফ্যাকাশে চোখ","অ্যালবেন্ডাজল/আইভারমেকটিন (লেবেল/ডাক্তার)"],["নিউমোনিয়া","কাশি, শ্বাসকষ্ট","অ্যান্টিবায়োটিক (ডাক্তার)"],["খুজলি","চুলকানি, চুল পড়া","আইভারমেকটিন বা ঔষধি গোসল"]]},
+    {h:"৫. আনুমানিক খরচ (৫টি ছাগল ও ১টি পাঁঠা)",cols:["খাত","৳"],rows:[["৫টি মা ছাগল","৪০,০০০–৭০,০০০"],["১টি পাঁঠা","১০,০০০–২০,০০০"],["মাচা-ঘর","১৫,০০০–৩০,০০০"],["বছরে খাদ্য, ওষুধ, টিকা","৩০,০০০–৪৫,০০০"]],note:"১ বছরে ১০–১৫টি বাচ্চা ধরে আয় আনুমানিক ৮০,০০০–১,৫০,০০০ টাকা।"}]},
+   {id:"crop",e:"🌾",t:"কৃষি ও ফসল",intro:"নাটোর অঞ্চলের উপযোগী ধান, গম, ভুট্টা, সরিষা ও সবজি চাষের মৌলিক পরামর্শ।",blocks:[
+    {h:"১. ফসলের ধরন",cols:["ফসল","মৌসুম","বৈশিষ্ট্য"],rows:[["বোরো ধান","ডিসেম্বর–এপ্রিল","সেচ লাগে, উৎপাদন বেশি"],["আমন ধান","জুলাই–নভেম্বর","বৃষ্টিনির্ভর"],["গম/ভুট্টা","নভেম্বর–মার্চ","কম সেচ, ভালো আয়"],["সরিষা","অক্টোবর–ফেব্রুয়ারি","স্বল্প সময়, তেল ফসল"],["সবজি (বেগুন, টমেটো, লাউ)","সারা বছর","দ্রুত আয়, বাজার সহজ"]]},
+    {h:"২. মাটি ও সার",items:["মাটি পরীক্ষা করে সার দিন","ইউরিয়া, টিএসপি, এমওপি, জিপসাম ও জিংক—ফসল অনুযায়ী মাত্রা কৃষি অফিস থেকে জেনে নিন","জৈব সার (গোবর, কম্পোস্ট) মাটির উর্বরতা বাড়ায়","সেচ পরিমিত দিন, জল অপচয় বন্ধ করুন"]},
+    {h:"৩. পোকা, রোগ ও ওষুধ*",cols:["সমস্যা","ফসল","প্রতিকার"],rows:[["মাজরা পোকা","ধান","আইপিএম: ডালপালা পুঁতে পাখি বসানো, ফেরোমন ফাঁদ; প্রয়োজনে অনুমোদিত কীটনাশক"],["ব্লাস্ট","ধান","ট্রাইসাইক্লাজোল জাতীয় ছত্রাকনাশক (লেবেল অনুযায়ী)"],["ফলছিদ্রকারী পোকা","বেগুন","আক্রান্ত ডগা কাটা, ফেরোমন ফাঁদ"],["ধসা রোগ","টমেটো","ম্যানকোজেব জাতীয় ছত্রাকনাশক (লেবেল অনুযায়ী)"]]},
+    {h:"৪. আনুমানিক খরচ ও আয় (১ বিঘা = ৩৩ শতক)",cols:["ফসল","খরচ (৳)","উৎপাদন"],rows:[["বোরো ধান","২৫,০০০–৩৫,০০০","১৮–২৫ মণ"],["আমন ধান","১৮,০০০–২৫,০০০","১৫–২০ মণ"],["সরিষা","৮,০০০–১২,০০০","৪–৬ মণ"],["বেগুন/টমেটো","৩০,০০০–৫০,০০০","১৫০–২৫০ মণ (আনুমানিক)"]],note:"দাম ও উৎপাদন মৌসুম ও জাত অনুযায়ী ভিন্ন হয়। কৃষি অফিস থেকে পরামর্শ নিন।"}]}
+  ]
+};
+
+$(function(){
+  $("#siteName").text(DATA.siteName);
+  $("#aboutTxt").text(DATA.about);
+
+  // Menu
+  $.each(DATA.menu, function(i,m){ $("#menu").append($("<li>").append($("<a>").attr("href",m.h).text(m.t))); });
+  $("#burger").on("click", function(){ $("#nav").toggleClass("open"); });
+  $("#menu").on("click","a",function(){ $("#nav").removeClass("open"); });
+
+  // Hero slider
+  var cur = 0, timer;
+  var $s = $("#slider");
+  $.each(DATA.slides, function(i,s){
+    var $sl = $('<div class="slide">').css("background",s.c)
+      .append($('<div class="em">').text(s.e), $("<h2>").text(s.t), $("<p>").text(s.p),
+              $('<a class="btn">').attr("href",s.h).text("বিস্তারিত দেখুন"));
+    $s.append($sl);
+    $("#dots").append($("<i>").on("click",function(){ go(i); }));
+  });
+  function go(n){
+    cur = (n + DATA.slides.length) % DATA.slides.length;
+    $(".slide").removeClass("on").eq(cur).addClass("on");
+    $("#dots i").removeClass("on").eq(cur).addClass("on");
+    clearInterval(timer); timer = setInterval(function(){ go(cur+1); }, 5000);
+  }
+  $("#prev").on("click",function(){ go(cur-1); });
+  $("#next").on("click",function(){ go(cur+1); });
+  go(0);
+
+  // Topic pages (one page per topic, hash routing)
+  var TOP = {}; $.each(DATA.topics,function(i,t){ TOP[t.id]=t; });
+  $.each(DATA.topics,function(i,t){
+    $("#topics").append($('<a class="card tc">').attr("href","#"+t.id).append($('<div class="ic">').text(t.e),$("<h3>").text(t.t),$("<p>").text(t.intro)));
+  });
+  function tbl(b){
+    var $t=$("<table>").append($("<tr>").append($.map(b.cols,function(c){return $("<th>").text(c)[0];})));
+    $.each(b.rows,function(i,r){ $t.append($("<tr>").append($.map(r,function(c,k){return $("<td>").attr("data-l",b.cols[k]).text(c)[0];}))); });
+    return $('<div class="tw">').append($t);
+  }
+  function render(t){
+    var $p=$("#page").empty();
+    $p.append($('<a class="back" href="#care">').text("← সব বিষয়"),$("<h2 class='t'>").text(t.e+" "+t.t),$("<p class='sub'>").text(t.intro));
+    $.each(t.blocks,function(i,b){
+      var $b=$('<div class="blk">').append($("<h3>").text(b.h));
+      if(b.cols){ $b.append(tbl(b)); } else { var $u=$("<ul>"); $.each(b.items,function(j,x){ $u.append($("<li>").text(x)); }); $b.append($u); }
+      if(b.note){ $b.append($("<p class='note'>").text(b.note)); }
+      $p.append($b);
+    });
+    $p.append($("<p class='warn'>").text("* ওষুধ ও ডোজ অবশ্যই উপজেলা প্রাণিসম্পদ/মৎস্য/কৃষি কর্মকর্তা বা নিবন্ধিত ডাক্তারের পরামর্শে ব্যবহার করুন। খরচ ও আয় আনুমানিক—বাজারদরে পরিবর্তন হয়।"));
+    var $n=$('<div class="tabs">'); $.each(DATA.topics,function(i,x){ $n.append($("<a>").attr("href","#"+x.id).toggleClass("on",x.id===t.id).text(x.e+" "+x.t)); }); $p.append($n);
+  }
+  function route(){
+    var h=location.hash.slice(1);
+    if(TOP[h]){ $("#about,#care,#services").hide(); render(TOP[h]); $("#page").show()[0].scrollIntoView(); }
+    else { $("#page").hide(); $("#about,#care,#services").show();
+      if(h==="home"||!h){ window.scrollTo(0,0); } else if($("#"+h).length){ $("#"+h)[0].scrollIntoView(); } }
+  }
+  $(window).on("hashchange",route); route();
+
+  // Collected data
+  $.each(DATA.contacts, function(i,c){
+    $("#contacts").append($('<div class="chip">').append($("<b>").append($("<a class='link'>").attr("href","tel:"+c.n).text(c.n)), $("<span>").text(c.l)));
+  });
+  $.each(DATA.links, function(i,l){
+    $("#links").append($('<a class="chip link" target="_blank" rel="noopener">').attr("href",l.u).text(l.t));
+  });
+  $.each(DATA.hotlines, function(i,h){
+    $("#hotlines").append($('<div class="chip">').append($("<b>").text(h.n), $("<span>").text(h.l)));
+  });
+});
+</script>
+</body>
+</html>
