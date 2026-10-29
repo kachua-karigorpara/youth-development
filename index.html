@@ -72,6 +72,10 @@ th,td{border:1px solid var(--bd);padding:7px 9px;text-align:left;vertical-align:
 .slide .sc{position:absolute;left:0;right:0;bottom:0;width:100%;height:60%;z-index:0;pointer-events:none}
 .dg{background:#fff;color:#1d2a1d;border:1px solid var(--bd);border-radius:14px;padding:8px;margin:12px 0}
 .dg svg{width:100%;height:auto;display:block;font-family:inherit}
+.l1{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:2px 12px}
+.l2{display:flex;flex-wrap:wrap;justify-content:center;gap:0 10px}
+.l2 span+span::before{content:"|";margin-right:10px;opacity:.6}
+@media(max-width:640px){.info{font-size:.74rem;padding:6px 8px;line-height:1.45}.info b{font-size:.95rem}.l2{flex-direction:column;align-items:center}.l2 span+span::before{content:none}.slide{padding:128px 16px 56px}.slide h2{font-size:1.35rem}.slide p{font-size:.95rem}.ar{width:36px;height:36px;font-size:1.1rem}#prev{left:6px}#next{right:6px}}
 footer{background:var(--pr2);color:#fff;text-align:center;padding:22px 16px;font-size:.9rem}
 footer a{color:#ffe082}
 </style>
@@ -84,7 +88,7 @@ footer a{color:#ffe082}
 </header>
 
 <div class="slider" id="slider">
-  <div class="info"><div><b id="clk"></b> &nbsp; 📍 কচুয়া কারিগরপাড়া, লালপুর, নাটোর, রাজশাহী</div><div><span id="dBn"></span> &nbsp;|&nbsp; <span id="dAr" dir="rtl"></span> &nbsp;|&nbsp; <span id="dEn"></span></div></div>
+  <div class="info"><div class="l1"><b id="clk"></b><span class="loc">📍 কচুয়া কারিগরপাড়া, লালপুর, নাটোর, রাজশাহী</span></div><div class="l2"><span id="dBn"></span><span id="dAr"></span><span id="dEn"></span></div></div>
   <button class="ar" id="prev" aria-label="আগের">◀</button>
   <button class="ar" id="next" aria-label="পরের">▶</button>
   <div class="dots" id="dots"></div>
